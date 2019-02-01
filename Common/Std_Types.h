@@ -10,8 +10,8 @@ typedef signed short int sint16;
 typedef signed long  int sint32;
 typedef enum
 {
-    FALSE = 0,
-    TRUE  = 1
+    FALSE = 0U,
+    TRUE  = 1U
 } boolean;
 
 #endif
