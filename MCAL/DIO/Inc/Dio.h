@@ -2,6 +2,14 @@
 #define DIO_H
 #include "Std_Types.h"
 
+#define PIN0
+#define PIN1
+#define PIN2
+#define PIN3
+#define PIN4
+#define PIN5
+#define PIN6
+#define PIN7
 
 typedef enum
 {
