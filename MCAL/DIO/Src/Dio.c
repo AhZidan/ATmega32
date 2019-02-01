@@ -165,3 +165,31 @@ void Dio_vidWritePin(enuDioPort Port, uint8 Pin, enuDioState State)
 			break;
 	}
 }
+
+/*****************************************************************************************
+! Description: Write value to a specific DIO port                                        *
+! Name       : Dio_vidWritePort                                                          *
+! Input      : Port ID, Pin Number, Pin Logic State                                      *
+! Output     : None                                                                      *
+! Last_Author: Ahmed.Yasser                                                              *
+/*****************************************************************************************/
+void Dio_vidWritePort(enuDioPort Port, uint8 Pin, uint8 Value)
+{
+	switch(Port)
+	{
+		case Dio_PORTA:
+			PORTA = Value;
+			break;
+		case Dio_PORTB:
+			PORTB = Value;
+			break;
+		case Dio_PORTC:
+			PORTC = Value;
+			break;
+		case Dio_PORTD:
+			PORTD = Value;
+			break;
+		default:
+			break;
+	}
+}
