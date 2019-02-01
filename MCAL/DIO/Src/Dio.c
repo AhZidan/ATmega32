@@ -193,3 +193,61 @@ void Dio_vidWritePort(enuDioPort Port, uint8 Pin, uint8 Value)
 			break;
 	}
 }
+
+/*****************************************************************************************
+! Description: Read a specific logic state of a DIO pin                                  *
+! Name       : Dio_u8ReadPin                                                             *
+! Input      : Port ID, Pin Number, Pin Logic State                                      *
+! Output     : None                                                                      *
+! Last_Author: Ahmed.Yasser                                                              *
+/*****************************************************************************************/
+uint8 Dio_u8ReadPin(enuDioPort Port, uint8 Pin)
+{
+	uint8 u8Result = 0U;
+	
+	switch(Port)
+	{
+		case Dio_PORTA:
+			if (Get_Bit(DDRA, Pin) == Dio_Input)
+			{
+				u8Result = Get_Bit(PINA, Pin);
+			}
+			else if (Get_Bit(DDRA, Pin) == Dio_Output)
+			{
+				u8Result = Get_Bit(PORTA, Pin);
+			}
+			break;
+		case Dio_PORTB:
+			if (Get_Bit(DDRB, Pin) == Dio_Input)
+			{
+				u8Result = Get_Bit(PINB, Pin);
+			}
+			else if (Get_Bit(DDRB, Pin) == Dio_Output)
+			{
+				u8Result = Get_Bit(PORTB, Pin);
+			}
+			break;
+		case Dio_PORTC:
+			if (Get_Bit(DDRC, Pin) == Dio_Input)
+			{
+				u8Result = Get_Bit(PINC, Pin);
+			}
+			else if (Get_Bit(DDRC, Pin) == Dio_Output)
+			{
+				u8Result = Get_Bit(PORTC, Pin);
+			}
+			break;
+		case Dio_PORTD:
+			if (Get_Bit(DDRD, Pin) == Dio_Input)
+			{
+				u8Result = Get_Bit(PIND, Pin);
+			}
+			else if (Get_Bit(DDRD, Pin) == Dio_Output)
+			{
+				u8Result = Get_Bit(PORTD, Pin);
+			}
+			break;
+		default:
+			break;
+	}
+}
