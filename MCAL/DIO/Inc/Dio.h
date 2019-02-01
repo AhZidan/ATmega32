@@ -23,6 +23,8 @@ typedef enum
     Dio_PORTD
 } enuDioPort;
 
+uint8 Dio_u8ReadPin(enuDioPort Port, uint8 Pin);
+void Dio_vidWritePort(enuDioPort Port, uint8 Pin, uint8 Value);
 void Dio_vidWritePin(enuDioPort Port, uint8 Pin, enuDioState State);
 void Dio_vidSetPortDirection(enuDioPort Port, enuDioDirection Direction);
 void Dio_vidSetPinDirection(enuDioPort Port, enuDioDirection Direction, uint8 Pin);
