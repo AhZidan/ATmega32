@@ -1,3 +1,5 @@
+#include "Dio.h"
+#include "avr\io.h"
 /*****************************************************************************************
 ! Description: Set the direction of a DIO pin                                            *
 ! Name       : Dio_vidSetPinDirection                                                    *
@@ -252,4 +254,60 @@ uint8 Dio_u8ReadPin(enuDioPort Port, uint8 Pin)
 	}
 }
 
-
+/*****************************************************************************************
+! Description: Read a specific logic state of a DIO port                                 *
+! Name       : Dio_u8ReadPort                                                            *
+! Input      : Port ID, Control Register(0: PIN, 1: PORT)                                *
+! Output     : None                                                                      *
+! Last_Author: Ahmed.Yasser                                                              *
+/*****************************************************************************************/
+uint8 Dio_u8ReadPort(enuDioPort Port, Control)
+{
+	uint8 u8Result = 0U;
+	
+	switch(Port)
+	{
+		case Dio_PORTA:
+			if (Control == 0U)
+			{
+				u8Result = PINA;
+			}
+			else if (Control == 1)
+			{
+				u8Result = PORTA;
+			}
+			break;
+		case Dio_PORTB:
+			if (Control == 0U)
+			{
+				u8Result = PINB;
+			}
+			else if (Control == 1)
+			{
+				u8Result = PORTB;
+			}
+			break;
+		case Dio_PORTC:
+			if (Control == 0U)
+			{
+				u8Result = PINC;
+			}
+			else if (Control == 1)
+			{
+				u8Result = PORTC;
+			}
+			break;
+		case Dio_PORTD:
+			if (Control == 0U)
+			{
+				u8Result = PIND;
+			}
+			else if (Control == 1)
+			{
+				u8Result = PORTD;
+			}
+			break;
+		default:
+			break;
+	}
+}
