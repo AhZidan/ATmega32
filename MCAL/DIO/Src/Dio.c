@@ -1,5 +1,6 @@
 #include "Dio.h"
 #include "avr\io.h"
+#include "Bit_Op.h"
 /*****************************************************************************************
 ! Description: Set the direction of a DIO pin                                            *
 ! Name       : Dio_vidSetPinDirection                                                    *
